@@ -1,0 +1,1 @@
+.container{font-family:Arial,sans-serif;text-align:center}ul{list-style:none;padding:0}li{display:inline-block;margin:20px;text-align:center;transition:transform .3s,box-shadow .3s}img{border-radius:8px;transition:transform .3s,box-shadow .3s}img.hovered{transform:scale(1.1);box-shadow:0 4px 8px #0000004d}.pagination{margin-top:20px}
