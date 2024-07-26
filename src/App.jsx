@@ -2,51 +2,62 @@ import React, { useState } from 'react';
 import './App.css';
 
 const mockCharacters = [
-  { id: 1, name: 'Rick Sanchez',age:'60', image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg' },
-  { id: 2, name: 'Morty Smith',age:'10', image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg' },
-  { id: 3, name: 'Summer Smith',age:'26', image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg' },
-  { id: 4, name: 'Beth Smith',age:'32', image: 'https://rickandmortyapi.com/api/character/avatar/4.jpeg' },
-  { id: 5, name: 'Jerry Smith',age:'35', image: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg' },
-  { id: 6, name: 'Birdperson',age:'30', image: 'https://rickandmortyapi.com/api/character/avatar/6.jpeg' },
-  { id: 7, name: 'Squanchy' ,age:'45', image: 'https://rickandmortyapi.com/api/character/avatar/7.jpeg' },
-  { id: 8, name: 'Mr. Poopybutthole' ,age:'50', image: 'https://rickandmortyapi.com/api/character/avatar/8.jpeg' },
-  { id: 9, name: 'Scary Terry',age:'40', image: 'https://rickandmortyapi.com/api/character/avatar/9.jpeg' },
-  { id: 10, name: 'Unity' ,age:'37', image: 'https://rickandmortyapi.com/api/character/avatar/10.jpeg' }
+  { id: 1, name: 'Rick Sanchez', age: '60', image: './src/img/vijay.jpg' },
+  { id: 2, name: 'Morty Smith', age: '10', image: './src/img/ajith.jpg' },
+  { id: 3, name: 'Summer Smith', age: '26', image: './src/img/surya.jpg' },
+  { id: 4, name: 'Beth Smith', age: '32', image: './src/img/rajini.jpg' },
+  { id: 5, name: 'Jerry Smith', age: '35', image: './src/img/kamal.jpg' },
+  { id: 6, name: 'Birdperson', age: '30', image: './src/img/jack sparrow.jpg' },
+  { id: 7, name: 'Squanchy', age: '45', image: './src/img/rdj.jpg' },
+  { id: 8, name: 'Mr. Poopybutthole', age: '50', image: './src/img/thor.jpg' },
+  { id: 9, name: 'Scary Terry', age: '40', image: './src/img/tom.jpg' },
+  { id: 10, name: 'Unity', age: '37', image: './src/img/wolvarine.jpg' }
 ];
 
-const PAGE_SIZE = 5;
-
 const App = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [hoveredImageId, setHoveredImageId] = useState(null);
 
-  // Simulated paginated data
-  const characters = mockCharacters.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
-  const totalPages = Math.ceil(mockCharacters.length / PAGE_SIZE);
-
-  const goToPage = (page) => {
-    setCurrentPage(page);
-  };
+  // Split the characters into Tamil actors and Hollywood actors
+  const tamilActors = mockCharacters.slice(0, 5);
+  const hollywoodActors = mockCharacters.slice(5);
 
   return (
     <div className="container">
-      <h1>Rick and Morty Characters</h1>
+      <h1>Tamil Actors</h1>
       <ul>
-        {characters.map((character) => (
-          <li key={character.id}>
-            <img src={character.image} alt={character.name} /> <br />
-            <span>NAME : {character.name}</span> <br />
-            <span>AGE : {character.age}</span>
+        {tamilActors.map((character) => (
+          <li
+            key={character.id}
+            onMouseEnter={() => setHoveredImageId(character.id)}
+            onMouseLeave={() => setHoveredImageId(null)}
+          >
+            <img
+              src={character.image}
+              alt={character.name}
+              className={hoveredImageId === character.id ? 'hovered' : ''}
+            />
+
           </li>
         ))}
       </ul>
-      <div className="pagination">
-        <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
-          Previous
-        </button>
-        <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>
-          Next
-        </button>
-      </div>
+
+      <h1>Hollywood Actors</h1>
+      <ul>
+        {hollywoodActors.map((character) => (
+          <li
+            key={character.id}
+            onMouseEnter={() => setHoveredImageId(character.id)}
+            onMouseLeave={() => setHoveredImageId(null)}
+          >
+            <img
+              src={character.image}
+              alt={character.name}
+              className={hoveredImageId === character.id ? 'hovered' : ''}
+            />
+          </li>
+        ))}
+      </ul>
+      
     </div>
   );
 };
