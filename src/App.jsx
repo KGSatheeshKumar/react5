@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import './App.css';
 
 const mockCharacters = [
-  { id: 1, name: 'Rick Sanchez', age: '60', image: './src/vijay.jpg' },
-  { id: 2, name: 'Morty Smith', age: '10', image: './src/ajith.jpg' },
-  { id: 3, name: 'Summer Smith', age: '26', image: './src/surya.jpg' },
-  { id: 4, name: 'Beth Smith', age: '32', image: './src/rajini.jpg' },
-  { id: 5, name: 'Jerry Smith', age: '35', image: './src/kamal.jpg' },
-  { id: 6, name: 'Birdperson', age: '30', image: './src/jack sparrow.jpg' },
-  { id: 7, name: 'Squanchy', age: '45', image: './src/rdj.jpg' },
-  { id: 8, name: 'Mr. Poopybutthole', age: '50', image: './src/thor.jpg' },
-  { id: 9, name: 'Scary Terry', age: '40', image: './src/tom.jpg' },
-  { id: 10, name: 'Unity', age: '37', image: './src/wolvarine.jpg' }
+  { id: 1, name: 'Rick Sanchez', age: '60', image: './vijay.jpg' },
+  { id: 2, name: 'Morty Smith', age: '10', image: './ajith.jpg' },
+  { id: 3, name: 'Summer Smith', age: '26', image: './surya.jpg' },
+  { id: 4, name: 'Beth Smith', age: '32', image: './rajini.jpg' },
+  { id: 5, name: 'Jerry Smith', age: '35', image: './kamal.jpg' },
+  { id: 6, name: 'Birdperson', age: '30', image: './jack sparrow.jpg' },
+  { id: 7, name: 'Squanchy', age: '45', image: './rdj.jpg' },
+  { id: 8, name: 'Mr. Poopybutthole', age: '50', image: './thor.jpg' },
+  { id: 9, name: 'Scary Terry', age: '40', image: './tom.jpg' },
+  { id: 10, name: 'Unity', age: '37', image: './wolvarine.jpg' }
 ];
 
 const App = () => {
